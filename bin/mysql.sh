@@ -39,7 +39,9 @@ else
 			winget install mysql
 			;;
 		
-			
+		*)
+			echo "Unsupported OS"
+			;;			
 			
 	
 
