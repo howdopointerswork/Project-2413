@@ -108,7 +108,8 @@
 
 - To get into source code (.java files, GUI, etc. that we edit in Eclipse)
 - Go into Eclipse
-- Go up to the Toolbar: File > Import > General > Archive File
+- Go up to the Toolbar: File > Import > General > Existing Projects Into WorkSpace 
+- Choose 'Select Archive File' and click Browse...
 - Select HMS.zip
 - It should open the project without errors*
 
