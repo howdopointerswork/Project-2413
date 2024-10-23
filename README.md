@@ -1,19 +1,27 @@
 # Project-2413
 ## For class INFO-2413
 
+
+## Breakdown: 
+
 - Using git commands
 	- switching branches
 	- creating, renaming, moving files
 	- fetching, merging
 	- pulling, pushing
 
+- Modifying java files/project (eclipse)
+
+
 - GUI role
 	- java and git
 	- should be in same dir as other files
+
 - Backend role
 	- class files
 	- java and git
 	- main file
+
 - Db role
 	- softwares to use
 	- sqlite3
@@ -90,6 +98,26 @@
 - To list all files in current directory, use ls: ls
 - To include hidden files, such as .gitignore, use the -a flag: ls -a
 
+
+
+## Java files/project
+
+- File HMS.zip is the latest project that you can import in Eclipse
+- File HMS.jar is the runnable .jar file that gives output
+- Right now .jar file just has a single test class file and one with a mainfunction that initializes the class in the class file
+
+- To get into source code (.java files, GUI, etc. that we edit in Eclipse)
+- Go into Eclipse
+- Go up to the Toolbar: File > Import > General > Archive File
+- Select HMS.zip
+- It should open the project without errors*
+
+- When exporting, you can either name it something different like HMS1.jar
+- Or just overwrite it with same name
+- So when  you are done making changes, go to the Toolbar
+- Go Export > Java > Runnable JAR File 
+- And export it to the Project-2413 folder
+- Export it again as an archive file (.zip) and export this to Project-2413 folder
 
 
 
