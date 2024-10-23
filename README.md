@@ -24,6 +24,8 @@
 
 **IF YOU SEE CHANGES, USE git merge origin/main**
 
+**NOTE: Eclipse has a built-in git feature. You can switch branches and put files this way as well, if you prefer it over using Terminal***
+
 ### Summary:
 - Clone the repo if you do not have it already (do not clone more than once)
 - fetch changes
@@ -76,3 +78,48 @@
 - By separating them, we have more control over what changes we are making
 
 
+### Useful commands
+- To move a file, use mv with a directory
+- Say we had: file.txt and  directory1/ in our folder
+- To move it in there, use: mv file.txt directory1/
+- To move it back out, use the parent directory notation (../): mv file.txt ../
+- Renaming uses mv as well: mv file.txt newname.txt
+- To create a new file, use touch: touch file2.txt
+- To delete, use rm: rm file2.txt
+- To view contents of a file, use cat: cat file.txt
+- To list all files in current directory, use ls: ls
+- To include hidden files, such as .gitignore, use the -a flag: ls -a
+
+
+
+
+## GUI
+- Start a java file or file(s) with the window builder
+- From Eclipse market place
+- Maybe add some labels, buttons, forms, etc. for different pages
+- Suggestions:
+- Log in page with labels for each field/form
+- Pop up window for alerts (small window)
+- Main page with buttons for adding, etc. tests
+- Different page for seeing inputted results
+
+
+## Database
+- Start with putting the database together using commands
+- Can use Oracle, Access, or any other software if you prefer
+- You could also do: touch database.db
+- Then you could use: sqlite3 database.db
+- And you can put commands in this way (don't forget to end statements witha ;)
+- To quit, go .quit or .exit
+- Use SELECT statements and such to see if the information you inputted is correct
+- If you finish this step, try connecting mysql with java
+- For example, try printing data from any column/field
+- Or multiple into an array and print them
+
+
+##Backend
+- Start by making the classes with variables and functions
+- Make stub functions for now by making return types void
+- "Implement" them with just return;
+- Start simple, with User class for example
+- And give it a string name, and other attributes in our diagrams
