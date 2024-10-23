@@ -18,6 +18,7 @@ for (( i=0; i<${#arr}; i++ )); do
 	echo "Processing branch: ${arr[$i]}"
 	git checkout "${arr[$i]}"
 	git merge main
+	git push
 
 done
 
