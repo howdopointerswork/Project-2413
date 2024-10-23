@@ -20,11 +20,11 @@
 
 ## Using Git
 
-***ALWAYS USE git fetch origin WHEN STARTING YOUR WORK TO SEE IF ANY CHANGES HAVE BEEN MADE TO THE REPO BY OTHERS**
+**ALWAYS USE git fetch origin WHEN STARTING YOUR WORK TO SEE IF ANY CHANGES HAVE BEEN MADE TO THE REPO BY OTHERS**
 
 **IF YOU SEE CHANGES, USE git merge origin/main**
 
-**NOTE: Eclipse has a built-in git feature. You can switch branches and put files this way as well, if you prefer it over using Terminal***
+**NOTE: Eclipse has a built-in git feature. You can switch branches and put files this way as well, if you prefer it over using Terminal**
 
 ### Summary:
 - Clone the repo if you do not have it already (do not clone more than once)
@@ -117,7 +117,7 @@
 - Or multiple into an array and print them
 
 
-##Backend
+## Backend
 - Start by making the classes with variables and functions
 - Make stub functions for now by making return types void
 - "Implement" them with just return;
