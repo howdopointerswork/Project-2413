@@ -15,11 +15,14 @@ arr=("Backend" "GUI" "database" "main" "misc")
 echo "Merging all branches..."
 
 for (( i=0; i<${#arr}; i++ )); do
-	echo "Processing branch: ${arr[$i]}"
-	git checkout "${arr[$i]}"
-	git merge main
-	git push
-
+	#if statement here, indent below
+	if [[ ${arr[$i]} =~ ^[A-Za-z] ]]; then
+	 
+		echo "Processing branch: ${arr[$i]}"
+		git checkout "${arr[$i]}"
+		git merge main
+		git push
+	fi
 done
 
 echo "Switching back to main..."
