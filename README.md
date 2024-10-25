@@ -48,7 +48,7 @@
 ### Cloning
 - For getting the repo to your local machine
 - Here, you can make changes/modify files locally before committing or pushing these to the repo
-- What you do is go to our repo here under the 'code' tab (if you're reading this, you're porbably there already)
+- What you do is go to our repo here under the 'code' tab (if you're reading this, you're probably there already)
 - You should see a green button '<> Code', click it
 - You will see three tabs, for simplicity, select SSH (you can use HTTPS if you prefer, I've only used SSH before)
 - Copy the link
@@ -102,16 +102,19 @@
 
 ## Java files/project
 
+- To compile the program, use java -jar HMS.jar
+
 - File HMS.zip is the latest project that you can import in Eclipse
 - File HMS.jar is the runnable .jar file that gives output
 - Right now .jar file just has a single test class file and one with a mainfunction that initializes the class in the class file
 
 - To get into source code (.java files, GUI, etc. that we edit in Eclipse)
 - Go into Eclipse
-- Go up to the Toolbar: File > Import > General > Existing Projects Into WorkSpace 
-- Choose 'Select Archive File' and click Browse...
-- Select HMS.zip
+- Go up to the Toolbar: File > Import > Projects from Folder or Archive 
+- Select either folder or archive
+- Select HMS.zip for archive or the project2413 directory for folder
 - It should open the project without errors*
+
 
 - When exporting, you can either name it something different like HMS1.jar
 - Or just overwrite it with same name
