@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ..
+cd ../lib/
 
 java -jar HMS.jar
 
