@@ -9,7 +9,7 @@ import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 import java.sql.SQLException;
-
+import java.util.ArrayList;
 
 
 
@@ -17,79 +17,45 @@ public class Main{
 	
 	public static void main(String[] args) {
 		
-	
-		//Create sample Test here
-		//Date curr = new Date(System.currentTimeMillis());
 		
-		//Create exam out of database exam
-		//This one just for debugging
-		Exam ct = new CardiovascularTest("31-10-2024", "Cardiovascular Test", 4);
-		//Create Exam using addResult here
+		HealthSystem hs = new HealthSystem(); //health system class object
 		
-		
-		//log in and sign up / authenticating should be called here
-		//Create user objects based on existing data
-		//For example, from the below code, we created a user
-		//With Username: User, Password: Test, ID: 1
-		//So we would take the elements on lines 62-64 and create a User instance
-		//from it
-		
-		/*System.out.println("ID: " + u.getID() + "; Username: " + u.getUsername());
-		
-		System.out.println("Password changed: " + u.changePassword("new"));
-		
-		System.out.println();
-		
-		System.out.println("Test ID: " + ct.getID());*/
-		
-		//Database
-		
-		
-		HealthSystem hs = new HealthSystem();
-		
-		Scanner scan = new Scanner(System.in);
-		
-		int choice=-1;
 		String username;
+		
 		String password;
 		
+		int choice = -1; //for loop
 		
-		while(hs.db_open() || choice != 0) {
-			//0 to quit
+		hs.db_open(); //open database and initialize connection variables
+		
+		while(choice != 0)	{ //main loop
 			
-			System.out.println("Welcome to the Health Monitoring System");
-			System.out.println("1. Log In");
-			System.out.println("2. Sign Up");
+			 //display logged out menu (replace with GUI)
 			
-			
-			choice = scan.nextInt();
-			scan.nextLine();
-			User current;
-			
-			switch(choice) {
+			switch(hs.loggedOutMenu()) {
 			
 			case 1:
 				
 				System.out.print("Enter username: ");
 				//user name text field use here
-				username = scan.nextLine();
+				username = hs.scan.nextLine();
 				
 				System.out.println();
 				//pass word text field here
 				System.out.print("Enter password: ");
 				
-				password = scan.nextLine();
+				password = hs.scan.nextLine();
 				
 				System.out.println();
 				
-				current = new User(hs.logIn(username, password), username, password);
+				hs.current = new User(hs.logIn(username, password), username, password);
 				
-				if(current.getID() != 0) {
+				if(hs.getAuthenticated()) {
 					
-					hs.changeAuthenticate();
 					System.out.println();
-					System.out.println("Signed in as: " + current.getUsername());
+					System.out.println("Signed in as: " + hs.current.getUsername());
 				}
+				
 				//for loop for checking users here
 				break;
 				
@@ -98,18 +64,19 @@ public class Main{
 				
 				System.out.print("Enter username: ");
 				//user name text field use here
-				username = scan.nextLine();
+				username = hs.scan.nextLine();
 				
 				System.out.println();
 				//pass word text field here
 				System.out.print("Enter password: ");
 				
-				password = scan.nextLine();
+				password = hs.scan.nextLine();
 				
 				System.out.println();
 				
-				current = hs.signUp(username, password);
-				if(current.getID() == 2) {
+				hs.current = hs.signUp(username, password);
+				//change hard code
+				if(hs.getAuthenticated()) {
 					
 					System.out.println("Signed up successfully");
 					
@@ -118,57 +85,98 @@ public class Main{
 			
 			}
 			
-			System.out.println("What would you like to do?");
-			
-			
-			//hs.setQuery("INSERT INTO Exam_Results (Exam_ID, User_ID, Test_ID, Date, Status) VALUES (?, ?, ?, ?, ?);");
-			
-			
-			//hs.exQuery();
-			
-			
-			
-			
-			//table names for debugging
-			/*hs.executeQuery();
-			
-			//column names for debugging
-			System.out.println();
-			System.out.println("User table:");
-			hs.executeQuery("PRAGMA table_info(User);");
-			
-			System.out.println();
-			System.out.println("Exam table:");
-			hs.executeQuery("PRAGMA table_info(Exam_Results);");
-			
-			System.out.println();
-			System.out.println("Test table:");
-			hs.executeQuery("PRAGMA table_info(Test);");*/
-			
-			
-			//Add user to try
-			
-			//hs.executeQuery("INSERT INTO User VALUES ('" + u.getID() + "', '" + u.getUsername() + "', '" + u.getPassword() + "');");
-			//Printing user info
-			/*hs.executeQuery("SELECT * FROM User;");
-			try {
-				while(hs.rs.next()) {
-					
-					System.out.println(hs.rs.getInt("User_ID"));
-					System.out.println(hs.rs.getString("Username"));
-					System.out.println(hs.rs.getString("Password"));
-					
-				}
-			} catch (SQLException e) {
+			if(hs.getAuthenticated()) { //check if user matches credentials in db
+				int option = hs.loggedInMenu();
+				switch(option) {
 				
-				e.printStackTrace();
-			}*/
-			
+				case 1:
+					
+					//Add Result
+					System.out.println("How many exams?");
+					int exams = hs.scan.nextInt();
+					hs.scan.nextLine();
+					for(int i=0; i<exams; i++) {
+						
+						System.out.println("Enter date: ");
+						String date = hs.scan.nextLine();
+						
+						System.out.println("Choose Test type:");
+						
+						switch(hs.examMenu()) {
+						
+						case 1:
+							
+							System.out.println("Enter category: ");
+							String cat = hs.scan.nextLine();
+							Exam b = new BloodTest(date, cat, hs.getExamID());
+							hs.addResult(b);
+							break;
+						
+						
+						
+						case 2:
+						
+						
+							Exam c = new CardiovascularTest(date, hs.getExamID());
+							hs.addResult(c);
+							break;
+							
+						case 3:
+							
+							
+							Exam g = new GastrointestinalTest(date, hs.getExamID());
+							hs.addResult(g);
+							break;
+						
+						case 4:
+							
+							
+							Exam r = new RespiratoryTest(date, hs.getExamID());
+							hs.addResult(r);
+							break;
+						}
+						
+						
+						
+					}
+				
+					break;
+					
+				
+				case 2:
+					hs.editResult();
+					//Edit Result
+					break;
+					
+					
+				case 3:
+					//Delete Result
+					hs.deleteResult();
+					break;
+					
+				
+				case 4:
+					
+					//Monitor settings
+					break;
+					
+				case 5:
+					
+					hs.signOut(hs.current);
+					break;
+					
+				default: 
+					
+					hs.loggedInMenu();
+				
+				
+				}
+			}
 			
 			System.out.println();
 			
 		}
-		scan.close();
+
 	
 	
 		

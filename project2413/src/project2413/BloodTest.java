@@ -6,11 +6,15 @@ public class BloodTest extends Exam{
 	
 	public int parentExamID;
 	
+	private String category;
+	
 	
 	
 	BloodTest(String date, String category, int id){
 		
-		super(date, category, id);
+		super(date, id);
+		
+		this.category = category;
 		
 	}
 	

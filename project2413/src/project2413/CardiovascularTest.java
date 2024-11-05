@@ -8,9 +8,9 @@ public class CardiovascularTest extends Exam{
 	
 	
 	
-	CardiovascularTest(String date, String category, int id){
+	CardiovascularTest(String date, int id){
 		
-		super(date, category, id);
+		super(date, id);
 		
 	}
 	

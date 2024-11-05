@@ -5,18 +5,21 @@ public class Exam{
 	
 	private String date;
 	
-	private String category;
-	
 	private int id;
 	
+	private Exam[] results;
+			
 	
-	Exam(String date, String category, int id){
+	
+	
+	
+	Exam(String date, int id){
 		
 			this.date = date;
 			
-			this.category = category;
-			
 			this.id = id;
+			
+			
 		
 	}
 	
@@ -27,11 +30,6 @@ public class Exam{
 	}
 	
 	
-	String getCategory() {
-		
-		return this.category;
-	
-	}
 	
 	int getID() {
 		
@@ -40,6 +38,7 @@ public class Exam{
 	
 	
 	public void enterResults() {
+		
 		
 		
 	}

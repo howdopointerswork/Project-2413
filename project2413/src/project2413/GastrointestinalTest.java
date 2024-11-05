@@ -8,9 +8,9 @@ public class GastrointestinalTest extends Exam{
 	
 	
 	
-	GastrointestinalTest(String date, String category, int id){
+	GastrointestinalTest(String date, int id){
 		
-		super(date, category, id);
+		super(date, id);
 		
 	}
 	
