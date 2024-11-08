@@ -10,11 +10,11 @@ public class BloodTest extends Exam{
 	
 	
 	
-	BloodTest(String date, String category, int id){
+	BloodTest(String date, int id, String category, int status, int User_ID){
 		
-		super(date, id);
+		super(date, id, "Blood", status, User_ID);
 		
-		this.category = category;
+	
 		
 	}
 	

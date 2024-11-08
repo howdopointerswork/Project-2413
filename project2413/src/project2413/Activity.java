@@ -1,6 +1,6 @@
 package project2413;
 
-public class Activity{
+public class Activity implements Comparable<Activity>{
 	
 	
 	private String date;
@@ -14,6 +14,8 @@ public class Activity{
 	private int emotion;
 	
 	private int medication;
+	
+	private int avg;
 	
 	
 	Activity(String date, int id, int fi, int rq, int em, int med){
@@ -42,6 +44,20 @@ public class Activity{
 		System.out.println("Rest Quality: " + this.rest_quality);
 		System.out.println("Emotion: " + this.emotion);
 		System.out.println("Medication: " + this.medication);
+	}
+	
+	
+	public int getAvg() {
+		
+		return this.avg = (this.food_intake + this.rest_quality + this.emotion + this.medication)/4;
+	}
+	
+	
+	@Override
+	public int compareTo(Activity a) {
+		
+		return Integer.compare(this.avg, a.avg);
+		
 	}
 	
 	

@@ -27,6 +27,33 @@ public class Alert{
 		
 		this.recorded = (this.recorded = true) ? false : true;
 		
+	
+	}
+	
+	
+	public int getID() {
+		
+		return this.id;
+	}
+	
+	
+	
+	public String getReason() {
+		
+		return this.reason;
+	}
+	
+	
+	public String getDate() {
+		
+		return this.date;
+	}
+	
+	
+	public boolean getRecorded() {
+		
+		
+		return this.recorded;
 	}
 	
 	

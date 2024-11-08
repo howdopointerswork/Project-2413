@@ -8,9 +8,9 @@ public class RespiratoryTest extends Exam{
 	
 	
 	
-	RespiratoryTest(String date, int id){
+	RespiratoryTest(String date, int id, String category, int status, int User_ID){
 		
-		super(date, id);
+		super(date, id, "Respiratory", status, User_ID);
 		
 	}
 	

@@ -20,6 +20,8 @@ public class Main{
 		
 		HealthSystem hs = new HealthSystem(); //health system class object
 		
+		Monitor mon = new Monitor();
+		
 		String username;
 		
 		String password;
@@ -87,6 +89,8 @@ public class Main{
 			
 			if(hs.getAuthenticated()) { //check if user matches credentials in db
 				int option = hs.loggedInMenu();
+				Exam e = null;
+				
 				switch(option) {
 				
 				case 1:
@@ -95,47 +99,11 @@ public class Main{
 					System.out.println("How many exams?");
 					int exams = hs.scan.nextInt();
 					hs.scan.nextLine();
+					
 					for(int i=0; i<exams; i++) {
 						
-						System.out.println("Enter date: ");
-						String date = hs.scan.nextLine();
-						
-						System.out.println("Choose Test type:");
-						
-						switch(hs.examMenu()) {
-						
-						case 1:
-							
-							System.out.println("Enter category: ");
-							String cat = hs.scan.nextLine();
-							Exam b = new BloodTest(date, cat, hs.getExamID());
-							hs.addResult(b);
-							break;
-						
-						
-						
-						case 2:
-						
-						
-							Exam c = new CardiovascularTest(date, hs.getExamID());
-							hs.addResult(c);
-							break;
-							
-						case 3:
-							
-							
-							Exam g = new GastrointestinalTest(date, hs.getExamID());
-							hs.addResult(g);
-							break;
-						
-						case 4:
-							
-							
-							Exam r = new RespiratoryTest(date, hs.getExamID());
-							hs.addResult(r);
-							break;
-						}
-						
+					
+						hs.addResult(e.enterResults(hs));
 						
 						
 					}
@@ -158,9 +126,17 @@ public class Main{
 				case 4:
 					
 					//Monitor settings
+					//allow for setting up of monitor before use
+					//and add a function to monitor based on category
+					mon.scanResults(hs);
 					break;
 					
 				case 5:
+					
+					//activity management here
+					break;
+					
+				case 6:
 					
 					hs.signOut(hs.current);
 					break;
