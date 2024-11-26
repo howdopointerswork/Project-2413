@@ -1,0 +1,6 @@
+Abnormalities may be caused by: Rest Quality with an average of: 0.0
+Your averages:
+Food Intake: 2.3333333
+Rest Quality: 0.0
+Emotion: 5.3333335
+Medicine: 1.0
